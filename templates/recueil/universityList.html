@@ -1,0 +1,60 @@
+
+
+
+
+
+
+{% extends 'base.html' %}
+
+{% block content %}
+{% load static %}
+
+
+
+
+
+<div class="tout" >
+    <h1>Universities</h1>
+    <h2><a  href="{% url 'recueil:university'  %}">  Ajouter une Universite</a></h2>
+        <div class="outer-wrapper">
+        <div class="table-wrapper">
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Nom</th>
+                    <th>Logo</th>
+                    <th>Date</th>
+                    <th colspan="2">Actions</th>
+
+
+
+                </tr>
+            </thead>
+            {% for university in universities %}
+
+            <tbody>
+                <tr>
+
+                    <td> {{ university.nom }}  </td>
+
+                    <!--<td>{{ semestre.nom }}</td>-->
+                    <td>     <a href="{% url 'recueil:ufr_par_university' university.id %}"> <img class="thumbnail" src="{{ university.photoUrl }}" alt=""> </a></td>
+                    <td>{{ university.date }}</td>
+                    <td><a href="{% url 'recueil:modifierUniversity' university.id %}">Modifier</a></td>
+                    <td><a href="{% url 'recueil:supprimerUniversity' university.id %}">Supprimer</a></td>
+
+
+
+
+                </tr>
+            {% endfor %}
+           </tbody>
+        </table>
+        </div>
+    </div>
+
+
+        
+{% endblock %}
+

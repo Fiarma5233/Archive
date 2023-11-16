@@ -1,0 +1,405 @@
+
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&dispay=swap');
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/*
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #23242a;
+    min-height: 100vh;
+}
+
+.box{
+    position: relative;
+    width: 370px;
+    height: 450px;
+    background: #1c1c1c;
+    border-bottom: 50px 5px;
+    overflow: hidden;
+}
+
+.box::before
+{
+    content: '';
+    position: absolute;
+    top: -50px;
+    left: -50px;
+    width: 370px;
+    height: 450px;
+    /*background: linear-gradient(60deg, transparent, #45f3ff,#45f3ff);/
+    transform-origin: bottom right;
+    animation: animate 6s linear infinite;
+}
+
+.box::after
+{
+    content: '';
+    position: absolute;
+    top: -50px;
+    left: -50px;
+    width: 370px;
+    height: 450px;
+    /*background: linear-gradient(60deg, transparent, #d9138a,#d9138a);/
+    transform-origin: bottom right;
+    animation: animate 6s linear infinite;
+    animation-delay: -3s;
+}
+
+@keyframes animate
+{
+    0%
+    {
+        transform: rotate(0deg);
+    }
+    100%
+    {
+        transform: rotate(360deg);
+    }
+}
+
+form
+{
+    position: absolute;
+    inset: 2px;
+    border-radius: 50px 5px;
+    /*background: #28292d;/
+    z-index: 10;
+    padding: 30px 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+h2{
+    color: #45f3ff;
+    font-size: 35px;
+    font-weight: 500px;
+    text-align: center;
+}
+
+.inputBox
+{
+    position: relative;
+    width: 300px;
+    margin-top: 35px;
+}
+
+.inputBox input
+{
+    position: relative;
+    width: 100px;
+    padding: 20px 10px 10px;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #23242a;
+    font-size: 1em;
+    letter-spacing: 0.05em;
+    z-index: 10;
+}
+
+
+input[type="submit"]
+{
+    font-size: 20px;
+    border: none;
+    outline: none;
+    background: #45f3ff;
+    padding: 5px;
+    margin-top: 40px;
+    border-radius: 90px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+input[type="submit"]:active
+{
+    background: linear-gradient(90deg, #45f3ff);
+    opacity: 0.8;
+}
+
+.inputBox span
+{
+    position: absolute;
+    left: 0;
+    padding: 20px 10px 10px;
+    font-size: 1em;
+    pointer-events: none;
+    letter-spacing: 0.05em;
+    transition: 0.5s;
+}
+
+.inputBox input:valid ~ span,
+.inputBox input:focus ~ span
+{
+    color: #141313;
+    transform: translateX(-10px) translateY(-30px);
+    font-size: 0.75em;
+}
+
+.inputBox i{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background: #0dbe39;
+    border-radius: 4px;
+    transition: 0.5s;
+    pointer-events: none;
+    z-index: 9;
+
+}
+
+
+
+.inputBox input:valid ~ i,
+.inputBox input:focus ~ i
+{
+    height: 44px;
+}
+
+.links
+{
+    display: flex;
+    justify-content: space-between;
+}
+
+.links a{
+    margin: 25px 0;
+    font-size: 1em;
+    color: #8f8f8f;
+    text-decoration: none;
+}
+
+
+.links a:hover,
+.links a:nth-child(2)
+{
+    color: #11e634;
+}
+
+.links a:nth-child(2):hover
+{
+    text-decoration: underline 2px;
+    text-underline-offset: 5px;
+}
+
+*/
+
+
+/*body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}*/
+
+.error{
+    color: red;
+}
+
+
+.ap{
+    position: relative;
+    width: 370px;
+    height: 450px;
+    /*background: #1c1c1c;*/
+    border-bottom: 50px 5px;
+    overflow: hidden;
+    margin-left: 400px;
+    margin-right: 250px;
+    justify-content: center;
+
+    margin-top: 40px;
+
+
+    margin: auto;
+}
+
+body{
+    background-color: rgb(168 188 140);
+
+}
+
+/*.box::before
+{
+    content: '';
+    position: absolute;
+    top: -50px;
+    left: -50px;
+    width: 370px;
+    height: 450px;
+    /*background: linear-gradient(60deg, transparent, #45f3ff,#45f3ff);/
+    transform-origin: bottom right;
+    animation: animate 6s linear infinite;
+}*/
+
+/*.box::after
+{
+    content: '';
+    position: absolute;
+    /*top: -50px;
+    left: -50px;*/
+    /*width: 370px;
+    height: 450px;
+    /*background: linear-gradient(60deg, transparent, #d9138a,#d9138a);*
+    transform-origin: bottom right;
+    animation: animate 6s linear infinite;
+    animation-delay: -3s;
+}*/
+
+@keyframes animate
+{
+    0%
+    {
+        transform: rotate(0deg);
+    }
+    100%
+    {
+        transform: rotate(360deg);
+    }
+}
+
+form
+{
+    position: absolute;
+    inset: 2px;
+    /*border-radius: 50px 5px;*/
+    /*background: #28292d;*/
+    background:rgba(62, 143, 98, 0.199);
+
+    z-index: 10;
+    padding: 30px 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+h2{
+    color: hsl(180, 7%, 8%);
+    font-size: 35px;
+    font-weight: 500px;
+    text-align: center;
+}
+
+.inputBox
+{
+    position: relative;
+    width: 300px;
+    margin-top: 35px;
+}
+
+.inputBox input
+{
+    position: relative;
+    width: 100px;
+    padding: 20px 10px 10px;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #23242a;
+    font-size: 1em;
+    letter-spacing: 0.05em;
+    z-index: 10;
+}
+
+
+input[type="submit"]
+{
+    font-size: 20px;
+    border: none;
+    outline: none;
+    background: #248b64;
+    padding: 5px;
+    margin-top: 40px;
+    border-radius: 90px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+input[type="submit"]:active
+{
+    background: linear-gradient(90deg, #10a560);
+    opacity: 0.8;
+}
+
+.inputBox span
+{
+    position: absolute;
+    left: 0;
+    padding: 20px 10px 10px;
+    font-size: 1em;
+    pointer-events: none;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    transition: 0.5s;
+}
+
+.inputBox input:valid ~ span,
+.inputBox input:focus ~ span
+{
+    color: #141313;
+    transform: translateX(-10px) translateY(-30px);
+    font-size: 0.75em;
+}
+
+.inputBox i{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background: hsl(138, 42%, 95%);
+    /*border-radius: 4px;*/
+    transition: 0.5s;
+    pointer-events: none;
+    z-index: 9;
+
+}
+
+
+
+.inputBox input:valid ~ i,
+.inputBox input:focus ~ i
+{
+    height: 44px;
+}
+
+.links
+{
+    display: flex;
+    justify-content: space-between;
+}
+
+.links a{
+    margin: 25px 0;
+    font-size: 1em;
+    color: hsl(68, 35%, 92%);
+    text-decoration: none;
+}
+
+
+.links a:hover,
+.links a:nth-child(2)
+{
+    color: #1b4e43;
+}
+
+.links a:nth-child(2):hover
+{
+    text-decoration: underline 2px;
+    text-underline-offset: 5px;
+}
+
+
+
+

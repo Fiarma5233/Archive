@@ -1,0 +1,66 @@
+
+
+
+
+
+{% extends 'base.html' %}
+{% block content %} 
+
+    {% load static %}
+
+
+  
+
+
+
+    <form action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="user-details">
+
+            <div class="input-box">
+                <span class="details">UFR</span>
+                <select name="ufr">
+                    {% for ufr in ufrs %}
+                        <option value="{{ ufr.id }}" {% if ufr.id == filiere.ufr.id %}selected{% endif %}>{{ ufr.nom }}</option>
+                    {% endfor %}
+                </select>    
+            </div>
+
+            <div class="user-details">
+                <div class="input-box">
+                    <span class="details">Nom de la filiere</span>
+                    <input type="text" name="nom" value="{{ filiere.nom }}">
+                    <strong class="error">{{ erreur1 }}</strong>    
+                </div>
+
+                
+
+                
+
+
+           
+            </div>
+            <div class="button">
+                <input type="submit" value="Soumettre" id="sub" name="Update Password"> 
+            </div>
+        </div>
+    </form>
+
+    <script>
+        document.getElementById('change-image-link').addEventListener('click', function() {
+            document.getElementById('image-upload').click();
+        });
+    </script>
+
+
+
+
+   
+
+
+
+
+
+    
+{% endblock %}
+

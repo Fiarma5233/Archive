@@ -1,0 +1,17 @@
+
+
+<!-- votre_template.html -->
+{% extends "base.html" %}
+
+{% block content %}
+
+{% load static %}
+
+  <h1>Niveaux de la filiere {{ filiere.nom }}</h1>
+  <ul>
+    {% for niveau in niveaux %}
+      <p><a href="{% url 'recueil:semeste_par_niveau' niveau.id %}">{{ niveau.nom }}</a></p>
+      <!-- Affichez d'autres informations sur le produit ici -->
+    {% endfor %}
+  </ul>
+{% endblock %}

@@ -1,0 +1,88 @@
+
+
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'css/Inscription.css' %}">
+
+
+
+
+
+
+
+
+  <div class="container">
+    <div class="title">Inscription</div>
+    <form action="" method="post"  >
+
+        {% csrf_token %} 
+        
+
+
+        <!--
+            - les valeurs de "name" dans input  doivent correspondre aux memes noms que ceux de notre modele : Couturier
+            - form  a deux  attribut s:
+                - action : execute un mout de code 
+                - method : 
+                        - GET : pour recevoir les donnees . On peut utiliser le GET pour garder des infos dans la db
+        -->
+
+        <div class="user-details">
+            <div class="input-box">
+                <span class="details">Nom</span>
+                <input type="text"  name="lastname" id="lastname" > 
+                <strong class="error">{{ erreur1 }}</strong>    
+            </div>
+
+            <div class="input-box">
+                <span class="details">Prenom</span>
+                <input type="text" name="firstname" id="firstname" required >
+                <strong class="error">{{ erreur2 }}</strong>    
+            </div>
+
+            <div class="input-box">
+                <span class="details">Nom de votre entreprise</span>
+                <input type="text" name="username" id="username" required >
+                <strong class="error">{{ erreur3 }}</strong>    
+            </div>
+
+            <div class="input-box">
+                <span class="details">Adresse mail</span>
+                <input type="email" name="email" id="email" required >
+                <strong class="error">{{ erreur4 }}</strong>    
+            </div>
+
+            <div class="input-box">
+                <span class="details">Mot de passe</span>
+                <input type="password" name="password" id="password" required >
+                <strong class="error">{{ erreur5 }}</strong>    
+            </div>
+
+            <div class="input-box">
+                <span class="details">Confirmation du Mot de passe</span>
+                <input type="password" name="password1" id="password1" required > 
+                <strong class="error">{{ erreur6 }}</strong>    
+            </div>
+
+       </div>
+       
+       <div class="button">
+            <input type="submit"  value="Valider" id="sub">
+
+       </div>
+
+      
+    </form>
+</div>
+
+
+
+{% endblock %}
+
+
+

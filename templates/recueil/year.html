@@ -1,0 +1,128 @@
+
+
+{% extends 'base.html' %}
+{% block content %} 
+
+{% load static %}
+
+
+
+    
+
+   
+    <form action="" method="post" enctype="multipart/form-data" >
+
+        {% csrf_token %}
+
+
+        <div class="user-details">
+            
+
+        <div class="user-details">
+
+
+
+
+
+            <div class="input-box">
+                <label class="details">Filieres</label>
+                <input type="text" list="filiere-list" name="filiere" id="filiere-selector">
+                <input type="hidden" name="filiere" id="filiere-id">
+                <datalist id="filiere-list">
+                    {% for filiere in filieres %}
+                        <option value="{{ filiere.nom }}" data-id="{{ filiere.id }}">{{ filiere.nom }}</option>
+                    {% endfor %}
+                </datalist>
+            </div>
+
+        </div>
+
+        <br>
+        <br>
+
+
+
+            <div class="input-box">
+                <label class="details">Niveau</label>
+                <input type="text" name="nom" >
+                <strong class="error">{{ erreur1 }}</strong>    
+            </div>
+
+            <br>
+            <br>
+    
+
+            <div class="input-box">
+                <label class="details">Periode</label>
+                <input type="text"  name="periode" placeholder="2023-2024">
+                <strong class="error">{{ erreur2 }}</strong>    
+            </div>
+
+            
+
+            
+           
+           
+
+
+
+        </div>
+
+
+        <br>
+        <br>
+
+
+        <div class="button">
+            <input  type="submit" value="Valider" > 
+
+        </div>
+
+
+    </form>
+</div>
+
+
+<script>
+    function addSearchToSelect(selectElement, searchInput, filiereIdInput) {
+        // Ajoutez un gestionnaire d'événement pour l'entrée de texte dans le champ de recherche
+        searchInput.addEventListener('input', function() {
+            const searchValue = this.value.toLowerCase();
+
+            // Réinitialisez le champ caché à vide
+            filiereIdInput.value = '';
+
+            // Parcourez les options du datalist et masquez celles qui ne correspondent pas à la recherche
+            for (const option of selectElement.querySelectorAll('option')) {
+                const optionText = option.value.toLowerCase();
+                const display = optionText.includes(searchValue) ? 'block' : 'none';
+                option.style.display = display;
+
+                // Si l'option est affichée, mettez à jour le champ caché avec l'ID correspondant
+                if (display === 'block') {
+                    const optionId = option.getAttribute('data-id');
+                    filiereIdInput.value = optionId;
+                }
+            }
+        });
+    }
+
+    // Attendez que le DOM soit chargé
+    document.addEventListener('DOMContentLoaded', function() {
+        // Sélectionnez les éléments par leur ID
+        const selectElement = document.getElementById('filiere-list');
+        const searchInput = document.getElementById('filiere-selector');
+        const filiereIdInput = document.getElementById('filiere-id');
+
+        // Ajoutez la fonctionnalité de recherche au champ de texte
+        addSearchToSelect(selectElement, searchInput, filiereIdInput);
+    });
+</script>
+    
+{% endblock %}
+
+
+
+
+
+   

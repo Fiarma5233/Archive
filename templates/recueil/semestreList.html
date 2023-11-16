@@ -1,0 +1,59 @@
+
+
+
+
+
+{% extends 'base.html' %}
+
+{% block content %}
+{% load static %}
+
+
+
+
+
+<div class="tout" >
+    <h1>SEMESTRES</h1>
+    <h2><a  href="{% url 'recueil:semestre'  %}">  Ajouter un Semestre</a></h2>
+        <div class="outer-wrapper">
+        <div class="table-wrapper">
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Nom</th>
+                    <th>Niveau</th>
+                    <th>Date</th>
+                    <th colspan="2">Actions</th>
+
+
+
+                </tr>
+            </thead>
+            {% for semestre in semestres %}
+
+            <tbody>
+                <tr>
+
+                    <td><a href="{% url 'recueil:module_par_semestre' semestre.id %}">{{ semestre.nom }}</a></td>
+
+                    <!--<td>{{ semestre.nom }}</td>-->
+                    <td>{{ semestre.year }}</a></td>
+                    <td>{{ semestre.date }}</td>
+                    <td><a href="{% url 'recueil:modfifierSemestre' semestre.id %}">Modifier</a></td>
+                    <td><a href="{% url 'recueil:supprimerSemestre' semestre.id %}">Supprimer</a></td>
+
+
+
+
+                </tr>
+            {% endfor %}
+           </tbody>
+        </table>
+        </div>
+    </div>
+
+
+        
+{% endblock %}
+

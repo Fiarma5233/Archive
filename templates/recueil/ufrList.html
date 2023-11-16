@@ -1,0 +1,60 @@
+
+
+
+
+
+
+{% extends 'base.html' %}
+
+{% block content %}
+{% load static %}
+
+
+
+
+
+<div class="tout" >
+    <h1>UFR</h1>
+    <h2><a  href="{% url 'recueil:ufr'  %}">  Ajouter une UFR</a></h2>
+        <div class="outer-wrapper">
+        <div class="table-wrapper">
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Nom</th>
+                    <th>Universite</th>
+                    <th>Date</th>
+                    <th colspan="2">Actions</th>
+
+
+
+                </tr>
+            </thead>
+            {% for ufr in ufrs %}
+
+            <tbody>
+                <tr>
+
+                    <td><a href="{% url 'recueil:filiere_par_ufr' ufr.id %}">{{ ufr.nom }}</a></td>
+
+                    <!--<td>{{ semestre.nom }}</td>-->
+                    <td>{{ ufr.university }}</a></td>
+                    <td>{{ ufr.date }}</td>
+                    <td><a href="{% url 'recueil:modifierUfr' ufr.id %}">Modifier</a></td>
+                    <td><a href="{% url 'recueil:supprimerUfr' ufr.id %}">Supprimer</a></td>
+
+
+
+
+                </tr>
+            {% endfor %}
+           </tbody>
+        </table>
+        </div>
+    </div>
+
+
+        
+{% endblock %}
+

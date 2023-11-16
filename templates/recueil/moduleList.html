@@ -1,0 +1,59 @@
+
+
+
+
+
+
+{% extends 'base.html' %}
+
+{% block content %}
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'css/listeCategorie.css' %}">
+
+
+
+
+<div class="tout" >
+    <h1>Niveaux</h1>
+    <h2><a  href="{% url 'recueil:module'  %}">  Ajouter un Module</a></h2>
+        <div class="outer-wrapper">
+        <div class="table-wrapper">
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Nom</th>
+                    <th>Semestre</th>
+                    <th>Date</th>
+                    <th colspan="2">Actions</th>
+
+
+
+                </tr>
+            </thead>
+            {% for module in modules %}
+
+            <tbody>
+                <tr>
+                    <td><a href="{% url 'recueil:cours_par_modules' module.id %}">{{ module.nom }}</a></td>
+
+                    <td>{{ module.semestre }}</a></td>
+                    <td>{{ module.date }}</td>
+                    <td><a href="{% url 'recueil:modifierModule' module.id %}">Modifier</a></td>
+                    <td><a href="{% url 'recueil:supprimerModule' module.id %}">Supprimer</a></td>
+
+
+
+
+                </tr>
+            {% endfor %}
+           </tbody>
+        </table>
+        </div>
+    </div>
+
+
+        
+{% endblock %}
+

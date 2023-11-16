@@ -1,0 +1,17 @@
+
+
+<!-- votre_template.html -->
+{% extends "base.html" %}
+
+{% block content %}
+
+{% load static %}
+
+  <h1>Filieres de l'UFR {{ ufr.nom }}</h1>
+  <ul>
+    {% for filiere in filieres %}
+      <p><a  href="{% url 'recueil:niveau_par_filiere' filiere.id %}">{{ filiere.nom }}</p></a>
+      <!-- Affichez d'autres informations sur le produit ici -->
+    {% endfor %}
+  </ul>
+{% endblock %}

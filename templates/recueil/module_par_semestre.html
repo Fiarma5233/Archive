@@ -1,0 +1,19 @@
+
+
+
+
+<!-- votre_template.html -->
+{% extends "base.html" %}
+
+{% block content %}
+
+{% load static %}
+
+  <h1> Modules du Semestre {{ semestre.nom }}</h1>
+  <ul>
+    {% for module in modules %}
+      <p><a  href="{% url 'recueil:cours_par_modules' module.id %}">{{ module.nom }}</p></a>
+      <!-- Affichez d'autres informations sur le produit ici -->
+    {% endfor %}
+  </ul>
+{% endblock %}

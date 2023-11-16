@@ -1,0 +1,17 @@
+
+
+<!-- votre_template.html -->
+{% extends "base.html" %}
+
+{% block content %}
+
+{% load static %}
+
+  <h1>UFR de l'universite {{ university.nom }}</h1>
+  <ul>
+    {% for ufr in ufrs %}
+      <p><a  href="{% url 'recueil:filiere_par_ufr' ufr.id %}"> {{ ufr.nom }}  </a></p>
+      <!-- Affichez d'autres informations sur le produit ici -->
+    {% endfor %}
+  </ul>
+{% endblock %}

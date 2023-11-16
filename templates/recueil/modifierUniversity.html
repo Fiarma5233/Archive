@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% block content %}  
+    {% load static %}
+
+<div class="container">
+    <div class="title">Modifier l'Universite {{ university.nom }} </div>
+    <form action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        <div class="user-details">
+            <div class="input-box">
+                <span class="details">Nom</span>
+                <input type="text" name="nom" id="nom" value="{{ university.nom }}">
+                <strong class="error">{{ erreur1 }}</strong>
+            </div>
+
+            <div class="input-box">
+                <p class="details">Photo actuelle</p>
+                <a href="#" id="change-photo-link">
+                    <img src="{{ university.photoUrl }}" alt="Photo actuelle de l'Universite" id="current-photo">
+                </a>
+                <input type="file" name="photo" id="photo-upload" style="display: none;" onchange="displayImagePreview(this)">
+                <strong class="error">{{ erreur2 }}</strong>
+            </div>
+        </div>
+
+        <div class="button">
+            <input type="submit" value="Valider">
+        </div>
+    </form>
+</div>
+
+<script>
+    document.getElementById('change-photo-link').addEventListener('click', function() {
+        document.getElementById('photo-upload').click();
+    });
+
+    function displayImagePreview(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                document.getElementById('current-photo').src = e.target.result;
+            }
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+</script>
+
+{% endblock %}

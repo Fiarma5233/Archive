@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% block content %}
+
+    {% load static %}
+
+    <form action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="user-details">
+            <div class="input-box">
+                <span class="details">Semestre</span>
+                <!-- Utilisez un champ texte au lieu d'une datalist -->
+                <input type="text" name="semestre" id="semestre-selector" placeholder="Rechercher ou sélectionner un semestre..." value="{{ module.semestre.id }}">
+                <!-- Champ caché pour stocker l'ID du semestre -->
+                <input type="hidden" name="semestre_id" id="semestre-id" value="{{ module.semestre.id }}">
+            </div>
+    
+            <br>
+            <br>
+    
+            <div class="user-details">
+                <div class="input-box">
+                    <span class="details">Nom du Module</span>
+                    <input type="text" name="nom" value="{{ module.nom }}">
+                    <strong class="error">{{ erreur1 }}</strong>
+                </div>
+            </div>
+    
+            <br>
+            <br>
+    
+            <div class="button">
+                <input type="submit" value="Soumettre" id="sub" name="Update Password">
+            </div>
+        </div>
+    </form>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const semestreInput = document.getElementById('semestre-selector');
+            const semestreIdInput = document.getElementById('semestre-id');
+    
+            semestreInput.addEventListener('input', function() {
+                const searchValue = this.value.toLowerCase();
+                const options = document.querySelectorAll('#semestre-list option');
+    
+                // Parcourir les options du datalist
+                for (const option of options) {
+                    const optionText = option.value.toLowerCase();
+                    if (optionText.includes(searchValue)) {
+                        option.style.display = 'block';
+                    } else {
+                        option.style.display = 'none';
+                    }
+                }
+            });
+    
+            semestreInput.addEventListener('change', function() {
+                // Lorsqu'un élément est sélectionné à partir du datalist
+                const selectedOption = document.querySelector(`#semestre-list option[value="${this.value}"]`);
+                if (selectedOption) {
+                    // Vous pouvez accéder à l'ID correspondant ici
+                    const semestreId = selectedOption.getAttribute('data-id');
+                    // Mettez à jour le champ caché avec l'ID du semestre
+                    semestreIdInput.value = semestreId;
+                }
+            });
+        });
+    </script>
+    
+
+{% endblock %}

@@ -1,0 +1,22 @@
+
+
+section#hero{
+    height: calc(100vh - 60px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+}
+
+#hero h1{
+    font-size: 3rem;
+    margin-bottom: 1rem;
+
+    
+} 
+
+body{
+    background-color: rgb(168 188 140);
+}

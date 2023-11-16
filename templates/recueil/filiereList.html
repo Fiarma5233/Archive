@@ -1,0 +1,59 @@
+
+
+
+
+
+{% extends 'base.html' %}
+
+{% block content %}
+{% load static %}
+
+
+
+
+
+<div class="tout" >
+    <h1>FILIERES</h1>
+    <h2><a  href="{% url 'recueil:filiere' %}">  Ajouter une filiere</a></h2>
+        <div class="outer-wrapper">
+        <div class="table-wrapper">
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Nom</th>
+                    <th>UFR</th>
+                    <th>Date</th>
+                    <th colspan="2">Actions</th>
+
+
+
+                </tr>
+            </thead>
+            {% for filiere in filieres %}
+
+            <tbody>
+                <tr>
+
+                    <td><a href="{% url 'recueil:niveau_par_filiere' filiere.id %}">{{ filiere.nom }}</a></td>
+
+                    <!--<td>{{ semestre.nom }}</td>-->
+                    <td>{{ filiere.ufr }}</a></td>
+                    <td>{{ filiere.date }}</td>
+                    <td><a href="{% url 'recueil:modifierFiliere' filiere.id %}">Modifier</a></td>
+                    <td><a href="{% url 'recueil:supprimerFiliere' filiere.id %}">Supprimer</a></td>
+
+
+
+
+                </tr>
+            {% endfor %}
+           </tbody>
+        </table>
+        </div>
+    </div>
+
+
+        
+{% endblock %}
+

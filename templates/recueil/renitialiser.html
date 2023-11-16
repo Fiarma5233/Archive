@@ -1,0 +1,81 @@
+
+
+
+
+
+{% extends 'base.html' %}
+
+{% block content %}
+
+    
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'css/nouveauPasse.css' %}">
+
+
+<!-- <h2>{{ message }}</h2> -->
+
+
+
+    
+
+        <!--
+            - les valeurs de "name" dans input  doivent correspondre aux memes noms que ceux de notre modele : Couturier
+            - form  a deux  attribut s:
+                - action : execute un mout de code 
+                - method : 
+                        - GET : pour recevoir les donnees . On peut utiliser le GET pour garder des infos dans la db
+                                <label for="username"  > Nom de votre entreprise <input type="text" name="username" id="username" required placeholder="Le nom de votre entreprise"> </label> <br> <br><br>
+
+        -->
+       
+
+        <style>
+            .error{
+                color: red;
+            }
+        </style>
+
+
+        <!--<label for="email" > Adresse mail:<input type="email" name="email"  autocomplete="off"  id="email" required placeholder="votre adresse mail"> </label> <br> <br><br>
+
+        <strong class="error">{{ erreur }}</strong>
+
+        <input class="btn btn-info" type="submit" autocomplete="off" value="Renitialiser le mot de passe" id="sub"> 
+
+
+    </form>-->
+
+    <div class="container">
+        <div class="title">Adresse Mail</div>
+        <form action="" method="post"  >
+
+            {% csrf_token %} 
+
+
+            <!--
+                - les valeurs de "name" dans input  doivent correspondre aux memes noms que ceux de notre modele : Couturier
+                - form  a deux  attribut s:
+                    - action : execute un mout de code 
+                    - method : 
+                            - GET : pour recevoir les donnees . On peut utiliser le GET pour garder des infos dans la db
+            -->
+
+            <div class="user-details">
+                <div class="input-box">
+                    <span class="details">Adresse Email</span>
+                    <input type="email" name="email"  autocomplete="off"  id="email" required placeholder="votre adresse mail">                     <strong class="error">{{ erreur }}</strong>    
+                </div>
+
+                
+           </div>
+           
+           <div class="button">
+            <input class="btn btn-info" type="submit" autocomplete="off" value="Renitialiser le mot de passe" id="sub"> 
+
+           </div>
+        </form>
+    </div>
+
+{% endblock %}
+

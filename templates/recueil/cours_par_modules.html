@@ -1,0 +1,67 @@
+
+
+
+
+<!-- votre_template.html -->
+{% extends "base.html" %}
+
+{% block content %}
+
+{% load static %}
+<center>
+  <h1>Fichiers du module {{ module.nom }}</h1>
+  <h2>Cours</h2>
+  <ul>
+    {% for fichier in fichiers %}
+
+    {% if fichier.status == "Cours" %}
+
+      <p> <a href="{{ fichier.file.url }}" target="_blank">  {{ fichier.get_file_name }}</a> </p>
+      <!-- Affichez d'autres informations sur le produit ici -->
+
+      {% endif %}
+
+    {% endfor %}
+
+
+
+
+
+  </ul>
+
+      <!--------------------------TP-------------->
+
+  <h2>TD</h2>
+  <ul>
+    {% for fichier in fichiers %}
+
+    {% if fichier.status == "TD" %}
+
+      <p> <a href="{{ fichier.file.url }}" target="_blank">  {{ fichier.get_file_name }}</a> </p>
+      <!-- Affichez d'autres informations sur le produit ici -->
+
+      {% endif %}
+
+    {% endfor %}
+  </ul>
+
+
+        <!--------------------------Autres-------------->
+
+
+        <h2>Autres</h2>
+  <ul>
+    {% for fichier in fichiers %}
+
+    {% if fichier.status == "Autres" %}
+
+      <p> <a href="{{ fichier.file.url }}" target="_blank">  {{ fichier.get_file_name }}</a> </p>
+      <!-- Affichez d'autres informations sur le produit ici -->
+
+      {% endif %}
+
+    {% endfor %}
+  </ul>
+</center>
+
+{% endblock %}

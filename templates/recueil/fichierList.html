@@ -1,0 +1,73 @@
+
+
+
+
+
+
+
+{% extends 'base.html' %}
+
+{% block content %}
+{% load static %}
+
+<!--<link rel="stylesheet" href="{% static 'css/listeCategorie.css' %}">-->
+
+
+
+
+<div class="tout" >
+    <h1>Niveaux</h1>
+    <h2><a  href="{% url 'recueil:fichier'  %}">  Ajouter un Fichier</a></h2>
+        <div class="outer-wrapper">
+        <div class="table-wrapper">
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Fichier</th>
+                    <th>Status</th>
+                    <th>Module</th>
+
+                    <th>Date</th>
+                    <th colspan="2">Actions</th>
+
+
+
+                </tr>
+            </thead>
+            {% for fichier in fichiers %}
+
+            <tbody>
+                <tr>
+                    
+                    {% if fichier.file %}
+                        <td><a href="{{ fichier.file.url }}" target="_blank">  {{ fichier.get_file_name }}</a></td>
+                    {% else %}
+                        <td>Aucun fichier disponible</td>
+                    {% endif %}
+
+                    
+                    </td>
+                    
+
+                    <td>{{ fichier.status }}</a></td>
+                    <td>{{ fichier.module }}</td>
+                    <td>{{ fichier.date }}</td>
+
+                    <td><a href="{% url 'recueil:modifierFichier' fichier.id %}">Modifier</a></td>
+                    <td><a href="{% url 'recueil:supprimerFichier' fichier.id %}">Supprimer</a></td>
+
+
+
+
+                </tr>
+            {% endfor %}
+           </tbody>
+        </table>
+        </div>
+    </div>
+
+
+        
+{% endblock %}
+

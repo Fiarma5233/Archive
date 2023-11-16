@@ -1,0 +1,325 @@
+
+
+/*.forme{
+    margin: 50px;
+    margin-left: 0cap;
+    letter-spacing: 0cqmax;
+    margin-bottom: auto;
+    position: relative;
+}
+
+body{
+    display: flex;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    /*background: linear-gradient(135deg, #71b7e6, #9b59b6);/
+    padding: 10px;
+}
+
+.container{
+    max-width: 700px;
+    width:  100%;
+    background:rgba(62, 143, 98, 0.199);
+    padding: 25px 30px;
+    border-radius: 5px;
+    margin: 0 auto;
+}
+
+.container .title{
+    font-size: 25px;
+    font-weight: 500;
+    position: relative;
+    text-align: center;
+}
+
+.container .title::before{
+    content: "";
+    position: absolute;
+    height: 3px;
+    width: 118px;
+    background: yellow;
+    
+    bottom: -5px;
+        
+    align-content: center;
+    align-self: center;
+}
+
+.container form .user-details{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+form .user-details .input-box{
+    margin:20px  0 12px 0;
+    width: calc(100% / 2 - 20px);
+    /*width: calc(100% / 3 - 20px);/
+}
+
+.user-details .input-box input{
+    height: 45px;
+    width: 100%;
+    outline: none;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding-left: 15px;
+    font-size: 16px;
+    border-bottom-width: 2px;
+    transition: all 0.3s ease;
+
+}
+
+
+
+.user-details .input-box .details{
+    font-weight: 500;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.user-details .input-box .error{
+    font-weight: 500;
+    margin-bottom: 5px;
+    display: block;
+    color: red;
+}
+
+.user-details .input-box input:focus,
+.user-details .input-box input:valid{
+    border-color: #9b59b6;
+}
+
+form .button{
+    height: 45px;
+    margin: 45px 0;
+}
+
+form .button input{
+    height: 100%;
+    width: 100%;
+    letter-spacing: 1px;
+    border-radius: 5px;
+    outline: none;
+    color: #daebdd;
+    border: none;
+    font-size: 18px;
+    font-weight: 500;
+    background: linear-gradient(135deg, #0bc25d, #9b59b6);
+}
+
+form .button input:hover{
+    background: linear-gradient(-135deg, #71b7e6, #bfdf09);
+
+}
+
+@media(max-width: 584px){
+    .container{
+        max-width: 100%;
+    }
+
+
+    form .user-details .input-box{
+        margin-bottom: 15px;;
+        width: 100%;
+    }
+
+    .container form .user-details{
+       max-height: 400px;
+       overflow-y: scroll;
+    }
+    
+    .user-details::-webkit-scrollbar{
+        width: 0;
+    }
+    
+}*/
+
+
+/*body{
+    display: flex;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    /*background: linear-gradient(135deg, #71b7e6, #9b59b6);*
+    padding: 10px;
+}*/
+
+body{
+    margin-top: -0px;
+
+}
+
+.error{
+    color: red;
+}
+
+* {
+    margin: 0px;
+    padding:0px;
+    font-family: Arial, Helvetica, sans-serif;
+    
+
+}
+
+body{
+    background-color: rgb(168 188 140);
+}
+
+
+.container{
+    /*padding: 10px;
+    top: 60px;
+    height: 70px;
+    margin-top: 40px;
+    top: 1250px;   
+      position: relative;
+    padding: 0px 10px;
+        margin-top: -50px;
+
+
+    bottom: 150px;*/
+  
+
+
+    max-width: 700px;
+    width:  100%;
+    background:rgba(62, 143, 98, 0.199);
+    padding: 25px 30px;
+    border-radius: 5px;
+    margin: 0 auto;
+    margin-top: 60px;
+    overflow-y: scroll;
+
+
+
+    /* Ce qi j'ajoute*/
+   
+
+    
+
+
+}
+
+
+
+hr{
+    width: 10px;
+}
+
+.container .title{
+    font-size: 25px;
+    font-weight: 500;
+    position: relative;
+    text-align: center;
+
+        /* Ce qi j'ajoute*/
+
+
+
+    
+}
+
+.container .title::before{
+    content: "";
+    position: absolute;
+    height: 3px;
+    width: 118px;
+    
+    
+    bottom: -5px;
+        
+    align-content: center;
+    align-self: center;
+}
+
+.container form .user-details{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+form .user-details .input-box{
+    margin:20px  0 12px 0;
+    width: calc(100% / 2 - 20px);
+    /*width: calc(100% / 3 - 20px);*/
+}
+
+.user-details .input-box input{
+    height: 45px;
+    width: 100%;
+    outline: none;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding-left: 15px;
+    font-size: 16px;
+    border-bottom-width: 2px;
+    transition: all 0.3s ease;
+
+}
+
+
+
+.user-details .input-box .details{
+    font-weight: 500;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.user-details .input-box .error{
+    font-weight: 500;
+    margin-bottom: 5px;
+    display: block;
+    color: red;
+}
+
+.user-details .input-box input:focus,
+.user-details .input-box input:valid{
+    border-color: #9b59b6;
+}
+
+form .button{
+    height: 45px;
+    margin: 45px 0;
+}
+
+form .button input{
+    height: 100%;
+    width: 100%;
+    letter-spacing: 1px;
+    border-radius: 5px;
+    outline: none;
+    color: #daebdd;
+    border: none;
+    font-size: 18px;
+    font-weight: 500;
+    background: linear-gradient(135deg, #0bc25d, #9b59b6);
+}
+
+form .button input:hover{
+    background: linear-gradient(-135deg, #71b7e6, #bfdf09);
+
+}
+
+@media(max-width: 584px){
+    .container{
+        max-width: 100%;
+    }
+
+
+    form .user-details .input-box{
+        margin-bottom: 15px;;
+        width: 100%;
+    }
+
+    .container form .user-details{
+       max-height: 400px;
+       overflow-y: scroll;
+    }
+    
+    .user-details::-webkit-scrollbar{
+        width: 0;
+    }
+    
+}

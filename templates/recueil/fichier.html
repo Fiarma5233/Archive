@@ -1,0 +1,138 @@
+
+
+
+
+
+
+{% extends 'base.html' %}
+{% block content %} 
+
+    {% load static %}
+
+
+
+    
+
+   
+    <form action="" method="post" enctype="multipart/form-data" >
+
+        {% csrf_token %}
+
+
+        <div class="user-details">
+
+
+
+
+            <div class="input-box">
+                <label class="details">Module</label>
+                <input type="text" list="module-list" name="module" id="module-selector">
+                <input type="hidden" name="module" id="module-id">
+                <datalist id="module-list">
+                    {% for module in modules %}
+                        <option value="{{ module.nom }}" data-id="{{ module.id }}">{{ module.nom }}</option>
+                    {% endfor %}
+                </datalist>
+            </div>
+
+
+            <br>
+            <br>
+
+
+
+
+
+
+
+
+
+            
+        <div class="user-details">
+
+            <div class="input-box">
+                <label class="details">Fichier</label>
+                <input type="file" name="file" >
+                <strong class="error">{{ erreur1 }}</strong>    
+            </div>
+
+            <br>
+            <br>
+
+
+            <div class="input-box">
+                <label class="details">Status</label>
+                <select name="status" id="id_status">
+                    <option value="Cours" {% if fichier.status == 'Cours' %}selected{% endif %}>Cours</option>
+                    <option value="TD" {% if fichier.status == 'TD' %}selected{% endif %}>TD</option>
+                    <option value="Autres" {% if fichier.status == 'Autres' %}selected{% endif %}>Autres</option>
+                  </select>
+                  
+            </div>
+           
+
+            
+
+
+            
+
+
+
+        </div>
+
+        <br>
+            <br>
+
+        <div class="button">
+            <input  type="submit" value="Enregistrer" id="sub" name="Update Passord"> 
+
+        </div>
+
+
+    </form>
+</div>
+
+
+<script>
+    function addSearchToSelect(selectElement, searchInput, moduleIdInput) {
+        // Ajoutez un gestionnaire d'événement pour l'entrée de texte dans le champ de recherche
+        searchInput.addEventListener('input', function() {
+            const searchValue = this.value.toLowerCase();
+
+            // Réinitialisez le champ caché à vide
+            moduleIdInput.value = '';
+
+            // Parcourez les options du datalist et masquez celles qui ne correspondent pas à la recherche
+            for (const option of selectElement.querySelectorAll('option')) {
+                const optionText = option.value.toLowerCase();
+                const display = optionText.includes(searchValue) ? 'block' : 'none';
+                option.style.display = display;
+
+                // Si l'option est affichée, mettez à jour le champ caché avec l'ID correspondant
+                if (display === 'block') {
+                    const optionId = option.getAttribute('data-id');
+                    moduleIdInput.value = optionId;
+                }
+            }
+        });
+    }
+
+    // Attendez que le DOM soit chargé
+    document.addEventListener('DOMContentLoaded', function() {
+        // Sélectionnez les éléments par leur ID
+        const selectElement = document.getElementById('module-list');
+        const searchInput = document.getElementById('module-selector');
+        const moduleIdInput = document.getElementById('module-id');
+
+        // Ajoutez la fonctionnalité de recherche au champ de texte
+        addSearchToSelect(selectElement, searchInput, moduleIdInput);
+    });
+</script>
+    
+{% endblock %}
+
+
+
+
+
+   

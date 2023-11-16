@@ -1,0 +1,56 @@
+
+
+
+{% extends 'base.html' %}
+
+{% block content %}
+{% load static %}
+
+
+
+
+
+<div class="tout" >
+    <h1>Niveaux</h1>
+    <h2><a  href="{% url 'recueil:year'  %}">  Ajouter un niveau</a></h2>
+        <div class="outer-wrapper">
+        <div class="table-wrapper">
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Nom</th>
+                    <th>Periode</th>
+                    <th>Filiere</th>
+
+                    <th>Date</th>
+                    <th colspan="2">Actions</th>
+
+
+
+                </tr>
+            </thead>
+            {% for year in years %}
+
+            <tbody>
+                <tr>
+                    <td><a href="{% url 'recueil:semeste_par_niveau' year.id %}">{{ year.nom }}</a></td>
+
+                    <td>{{ year.periode }}</a></td>
+                    <td>{{ year.filiere }}</a></td>
+
+                    <td>{{ year.date }}</td>
+                    <td><a href="{% url 'recueil:modifierYear' year.id %}">Modifier</a></td>
+                    <td><a href="{% url 'recueil:supprimerYear' year.id %}">Supprimer</a></td>
+                    
+                </tr>
+            {% endfor %}
+           </tbody>
+        </table>
+        </div>
+    </div>
+
+
+        
+{% endblock %}
+

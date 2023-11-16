@@ -1,0 +1,20 @@
+
+
+<!-- votre_template.html -->
+{% extends "base.html" %}
+
+{% block content %}
+
+{% load static %}
+
+  <h1>Semestre du Niveau {{ year.nom }}</h1>
+  <ul>
+    {% for semestre in semestres %}
+      <p><a href="{% url 'recueil:module_par_semestre' semestre.id %}">{{ semestre.nom }} </a></p>
+      <!-- Affichez d'autres informations sur le produit ici -->
+    {% endfor %}
+  </ul>
+{% endblock %}
+
+
+

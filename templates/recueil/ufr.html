@@ -1,0 +1,113 @@
+
+
+
+
+{% extends 'base.html' %}
+{% block content %} 
+
+    {% load static %}
+
+
+
+    
+
+   
+    <form action="" method="post" enctype="multipart/form-data" >
+
+        {% csrf_token %}
+
+
+        <div class="user-details">
+            
+
+
+
+            <div class="input-box">
+                <label class="details">Universities</label>
+                <input type="text" list="university-list" name="university" id="university-selector">
+                <input type="hidden" name="university" id="university-id">
+                <datalist id="university-list">
+                    {% for university in universities %}
+                        <option value="{{ university.nom }}" data-id="{{ university.id }}">{{ university.nom }}</option>
+                    {% endfor %}
+                </datalist>
+            </div>
+
+
+        <br>
+        <br>
+
+        <div class="user-details">
+            <div class="input-box">
+                <label class="details">Nom de l'UFR</label>
+                <input type="text" name="nom" >
+                <strong class="error">{{ erreur2 }}</strong>    
+            </div>
+
+           
+
+            
+
+
+            
+
+            <br>
+            <br>
+
+        </div>
+
+        <div class="button">
+            <input  type="submit" value="Enregistrer" id="sub" name="Update Passord"> 
+
+        </div>
+
+
+    </form>
+
+
+</div>
+
+
+<script>
+    function addSearchToSelect(selectElement, searchInput, universityIdInput) {
+        // Ajoutez un gestionnaire d'événement pour l'entrée de texte dans le champ de recherche
+        searchInput.addEventListener('input', function() {
+            const searchValue = this.value.toLowerCase();
+
+            // Réinitialisez le champ caché à vide
+            universityIdInput.value = '';
+
+            // Parcourez les options du datalist et masquez celles qui ne correspondent pas à la recherche
+            for (const option of selectElement.querySelectorAll('option')) {
+                const optionText = option.value.toLowerCase();
+                const display = optionText.includes(searchValue) ? 'block' : 'none';
+                option.style.display = display;
+
+                // Si l'option est affichée, mettez à jour le champ caché avec l'ID correspondant
+                if (display === 'block') {
+                    const optionId = option.getAttribute('data-id');
+                    universityIdInput.value = optionId;
+                }
+            }
+        });
+    }
+
+    // Attendez que le DOM soit chargé
+    document.addEventListener('DOMContentLoaded', function() {
+        // Sélectionnez les éléments par leur ID
+        const selectElement = document.getElementById('university-list');
+        const searchInput = document.getElementById('university-selector');
+        const universityIdInput = document.getElementById('university-id');
+
+        // Ajoutez la fonctionnalité de recherche au champ de texte
+        addSearchToSelect(selectElement, searchInput, universityIdInput);
+    });
+</script>
+    
+{% endblock %}
+
+
+
+
+
+   

@@ -1,0 +1,115 @@
+
+
+
+
+{% extends 'base.html' %}
+{% block content %} 
+
+    {% load static %}
+
+
+
+    
+
+   
+    <form action="" method="post" enctype="multipart/form-data" >
+
+        {% csrf_token %}
+
+
+        <div class="user-details">
+
+
+            <div class="input-box">
+                <label class="details">Niveau</label>
+                <input type="text" list="year-list" name="year" id="year-selector">
+                <input type="hidden" name="year" id="year-id">
+                <datalist id="year-list">
+                    {% for year in years %}
+                        <option value="{{ year.nom }}" data-id="{{ year.id }}">{{ year.nom }}</option>
+                    {% endfor %}
+                </datalist>
+            </div>
+
+
+
+
+
+
+            <br>
+            <br>
+
+        <div class="user-details">
+            <div class="input-box">
+                <label class="details">Nom du semestre</label>
+                <input type="text" name="nom" >
+                <strong class="error">{{ erreur1 }}</strong>    
+            </div>
+
+           
+
+            
+
+
+            
+
+
+
+        </div>
+
+         <br>
+         <br>
+
+        <div class="button">
+            <input  type="submit" value="Enregistrer" id="sub" name="Update Passord"> 
+
+        </div>
+
+
+    </form>
+</div>
+    
+
+<script>
+    function addSearchToSelect(selectElement, searchInput, yearIdInput) {
+        // Ajoutez un gestionnaire d'événement pour l'entrée de texte dans le champ de recherche
+        searchInput.addEventListener('input', function() {
+            const searchValue = this.value.toLowerCase();
+
+            // Réinitialisez le champ caché à vide
+            yearIdInput.value = '';
+
+            // Parcourez les options du datalist et masquez celles qui ne correspondent pas à la recherche
+            for (const option of selectElement.querySelectorAll('option')) {
+                const optionText = option.value.toLowerCase();
+                const display = optionText.includes(searchValue) ? 'block' : 'none';
+                option.style.display = display;
+
+                // Si l'option est affichée, mettez à jour le champ caché avec l'ID correspondant
+                if (display === 'block') {
+                    const optionId = option.getAttribute('data-id');
+                    yearIdInput.value = optionId;
+                }
+            }
+        });
+    }
+
+    // Attendez que le DOM soit chargé
+    document.addEventListener('DOMContentLoaded', function() {
+        // Sélectionnez les éléments par leur ID
+        const selectElement = document.getElementById('year-list');
+        const searchInput = document.getElementById('year-selector');
+        const yearIdInput = document.getElementById('year-id');
+
+        // Ajoutez la fonctionnalité de recherche au champ de texte
+        addSearchToSelect(selectElement, searchInput, yearIdInput);
+    });
+</script>
+
+{% endblock %}
+
+
+
+
+
+   

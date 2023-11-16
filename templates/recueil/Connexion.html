@@ -1,0 +1,71 @@
+
+
+
+
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/connexion.css' %}">
+
+
+
+<!-- <h2>{{ message }}</h2> -->
+
+<div class="ap">
+    <form action="  " method="post" >
+        {% csrf_token %} 
+
+        <!--
+            - les valeurs de "name" dans input  doivent correspondre aux memes noms que ceux de notre modele : Couturier
+            - form  a deux  attribut s:
+                - action : execute un mout de code 
+                - method : 
+                        - GET : pour recevoir les donnees . On peut utiliser le GET pour garder des infos dans la db
+        -->
+       <h2>Connexion</h2>
+       
+       <strong class="error"> {{ erreur }}</strong>
+
+       <div class="inputBox">
+            <input type="text" name="username" id="username" required> 
+            <span>Le nom de votre entreprise</span>
+            <i></i>
+
+       </div>
+
+       <div class="inputBox">
+            <input type="password" name="password" id="password" required > 
+
+            <span>votre mot de passe</span>
+            <i></i>
+
+        </div>
+
+        <input type="submit" value="Se connecter" > 
+
+        <div class="links">
+            <a href="{% url 'recueil:renitialiser' %}"> Mot de passe oublie ? </a>
+            <a href="{% url 'recueil:inscription' %}"> S'inscrire </a>
+        </div>
+
+
+        <!--<label for="username"  > Nom de votre entreprise <input type="text" name="username" id="username" required placeholder="Le nom de votre entreprise"> </label> <br> <br><br>
+
+
+
+        <label for="password" > Mot de passe <input type="password" name="password" id="password" required placeholder="votre mot de passe"> </label> <br> <br><br>
+
+
+        <input type="submit" value="Se connecter" id="sub"> 
+    
+
+
+    </form>
+
+</div>
+
+
+{% endblock %}
+
